@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 01 - Responsive Landing Page</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(to right, #240046, #3c096c);
+        color: white;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 60px;
+        z-index: 1000;
+        transition: 0.3s ease;
+    }
+
+    /* Change nav color when scrolled */
+    nav.scrolled {
+        background: #1e3cff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    nav h1 {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        gap: 40px;
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        position: relative;
+        transition: 0.4s;
+    }
+
+    /* Hover animation */
+    ul li a:hover {
+        color: #ffd60a;
+        transform: scale(1.1);
+    }
+
+    ul li a::after {
+        content: '';
+        height: 2px;
+        width: 0%;
+        background: #ffd60a;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        transition: 0.3s;
+    }
+
+    ul li a:hover::after {
+        width: 100%;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn {
+        padding: 15px 40px;
+        background: #1e3cff;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #ffd60a;
+        color: black;
+        transform: translateY(-5px);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+        padding: 100px 60px;
+        background: #10002b;
+    }
+
+    section:nth-child(even) {
+        background: #240046;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    p {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+        nav {
+            padding: 15px 20px;
+        }
+
+        ul {
+            gap: 15px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar">
+    <h1>Task-01</h1>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<div class="hero" id="home">
+    <div>
+        <h1>Responsive Landing Page</h1>
+        <p>
+            This interactive landing page has a fixed navigation bar that changes
+            color when you scroll and animates when you hover.
+        </p>
+        <button class="btn">Get Started</button>
+    </div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<section id="about">
+    <h2>About This Task</h2>
+    <p>
+        The navigation bar is fixed and visible at all times. Once the page is
+        scrolled down, JavaScript dynamically updates the background color.
+    </p>
+</section>
+
+<section id="services">
+    <h2>Services</h2>
+    <p>
+        HTML was used for structure, CSS for design, and JavaScript for interactivity.
+        Responsive design is applied for all screens.
+    </p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>
+        View my LinkedIn here: 
+        <a href="https://www.linkedin.com/in/mmatsie-sara-bopape-a59774317" target="_blank">
+            Click</a><br>
+        View my GitHub here: 
+        <a href="https://github.com/sarahbopape0758" target="_blank">
+            Click</a><br>
+         View my portfolio here: 
+        <a href="https://sarahbopape0758.github.io/Portfolio/" target="_blank">
+            Click</a><br> 
+       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bopapesarah2324@gmail.com" target="_blank">
+    Email Me (Gmail)
+</a>
+</section>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 60) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
+</script>
+
+</body>
+</html>
